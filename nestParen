@@ -1,0 +1,20 @@
+Code for nestParen 
+
+public boolean nestParen(String str) {
+  if(str.length() == 0){
+    return
+  }
+  if(str.length()<2){
+    return false;
+  }
+  if(str.length()==2){
+    if(str.equals("()")){
+      return true;
+    }
+  }
+  if(str.charAt(0)=='(' && str.charAt(str.length()-1)==')'){
+    return nestParen(str.substring(1,str.length()-1));
+  }
+  return false;
+}
+
