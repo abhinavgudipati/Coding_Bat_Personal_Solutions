@@ -1,0 +1,33 @@
+Code for Cenetered Average ;
+
+except 2 test cases, all the test cases were working;
+
+public int centeredAverage(int[] nums) {
+  int max = nums[0];
+  int min = nums[0];
+  
+  for(int i = 0 ; i < nums.length ; i++){
+    max = Math.max(max,nums[i]);
+    min = Math.min(min,nums[i]);
+  }
+  
+  int sum = 0;
+  for(int j = 0 ; j<nums.length ; j++){
+    if(nums[j] != max && nums[j] != min){
+      sum = sum + nums[j];
+      int count = 0;
+      if(nums.length<=3){
+        if( nums[ j ] == nums [j+1] && nums[j+1] == nums[ j+2 ]){
+          sum = sum + nums[j];
+        }
+        else if(nums[j] == nums[j+1]){
+          count++;
+          if(count<=1){
+            sum = sum + nums[j];
+          }
+        }
+      }
+    }
+  }
+  return sum/(nums.length - 2);
+}
